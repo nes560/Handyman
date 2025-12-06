@@ -1,0 +1,67 @@
+/* BACKGROUND DAUN HIJAU */
+body {
+    background-image: url('https://img.freepik.com/free-photo/tropical-green-leaves-background_53876-88891.jpg?w=1800&t=st=1690450343~exp=1690450943~hmac=e262ed30d6b9423a150b38f1d9c0f2cb74ed04a6b2daf0e6d93c7cc9c81eac93');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* EFEK TEKS BAYANGAN AGAR TERBACA DI BACKGROUND */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* EFEK KACA PADA KARTU (GLASSMORPHISM) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.9); /* Putih transparan */
+    backdrop-filter: blur(10px);          /* Efek blur di belakang */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* STYLE UNTUK INPUT FORM */
+.form-control {
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+.input-group-text {
+    border: 1px solid #e2e8f0;
+}
+
+/* STYLE UNTUK SWITCHER ROLE */
+.role-switch-container {
+    background-color: #f8f9fa;
+    padding: 5px;
+    border-radius: 12px;
+    display: flex;
+    border: 1px solid #e9ecef;
+}
+
+.role-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.role-btn:hover {
+    color: #0d6efd;
+}
+
+/* WARNA SAAT TOMBOL AKTIF (DIATUR LEBIH LANJUT DI JS) */
+.role-btn.active {
+    color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
