@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: tukang-app
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    buildCommand: null  # Render auto-builds from Dockerfile
+    startCommand: node node.js
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: DB_HOST
+        sync: false  # set manually or via secret
+      - key: DB_USER
+        sync: false  # set manually or via secret
+      - key: DB_PASSWORD
+        sync: false  # set manually or via secret
+      - key: DB_NAME
+        value: tukang_db
+    autoDeploy: true
+    staticSiteRoot: /
+
+  - type: mysql
+    name: tukang-mysql
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: Allow all (restrict in production)
+    version: "8.0"
+
+databases:
+  - name: tukang_db
+    databaseName: tukang_db
+    user: root
+    postgresDatabaseVersion: null

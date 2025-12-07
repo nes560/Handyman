@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: tukang_db
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      PORT: 3000
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: example
+      DB_NAME: tukang_db
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
+    command: ["node", "node.js"]
+
+volumes:
+  db_data:

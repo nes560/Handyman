@@ -1,0 +1,30 @@
+name: tukang-handyman
+services:
+  - name: tukang-api
+    github:
+      repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME  # Replace with your repo
+      branch: main
+    build_command: |
+      docker build -t tukang-app .
+    run_command: node node.js
+    http_port: 3000
+    health_check:
+      http_path: /
+    envs:
+      - key: PORT
+        value: "3000"
+      - key: DB_HOST
+        value: ${db.host}
+      - key: DB_USER
+        value: ${db.user}
+      - key: DB_PASSWORD
+        value: ${db.password}
+        scope: RUN_AND_BUILD_TIME
+      - key: DB_NAME
+        value: tukang_db
+
+databases:
+  - name: tukang-mysql
+    engine: MYSQL
+    version: "8"
+    production: false
